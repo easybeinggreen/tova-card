@@ -171,7 +171,7 @@
   .member img{filter:saturate(1.15) contrast(.94) sepia(.14) brightness(1.03)}
   .member .arm{transform-origin:76px 94px;animation:wave 1s ease-in-out infinite alternate}
   .member:nth-child(even) .arm{animation-duration:.8s;animation-delay:-.3s}
-  @keyframes wave{from{transform:rotate(-24deg)}to{transform:rotate(22deg)}}
+  @keyframes wave{from{transform:rotate(-4deg)}to{transform:rotate(24deg)}}
   .member b{display:block;margin-top:1vmin;font-family:'Caveat',cursive;font-size:clamp(24px,4.6vmin,44px);line-height:1}
   #again{margin-top:2vmin;font-family:'Caveat',cursive;font-size:clamp(20px,3.4vmin,32px);background:var(--paper);
     border:2px solid var(--ink);border-radius:999px;padding:.4vmin 2.4vmin .8vmin;box-shadow:0 .5vmin 0 var(--ink)}
@@ -368,6 +368,7 @@
       <circle cx="30" cy="84" r="3" fill="#e58a8a"/><circle cx="48" cy="78" r="3" fill="#fff"/><circle cx="40" cy="93" r="3" fill="#fff"/>
       <path d="M27 62 Q14 78 20 92" stroke="#f5cfa8" stroke-width="6" fill="none" stroke-linecap="round"/>
       <path d="M53 62 Q66 74 62 90" stroke="#f5cfa8" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <rect x="34" y="46" width="12" height="14" rx="4" fill="#f5cfa8"/>
       <circle cx="40" cy="36" r="16" fill="#f7d5b0"/>
       <path d="M24 34 Q26 16 42 17 Q56 18 57 34 Q46 24 24 34Z" fill="#ecc96e"/>
       <circle cx="34" cy="38" r="2" fill="#3d3226"/><circle cx="46" cy="38" r="2" fill="#3d3226"/>
@@ -404,8 +405,8 @@ const FAMILY = [
   { name: "Stina",   photo: null, skin: "#f7d5b0", hair: "#ecc96e", shirt: "#f2c14e", long: true },   // long blond hair
   { name: "Mormor",  photo: null, skin: "#f5d3b3", hair: "#dcd8d2", shirt: "#b78be0", bun: true },
   { name: "John",    photo: null, skin: "#efc39c", hair: "#c9c4bd", shirt: "#79a75f" },
-  { name: "Ian",     photo: null, skin: "#e9b98f", hair: "#3a2f28", shirt: "#5aa9a0" },
-  { name: "Julie",   photo: null, skin: "#f3c9a5", hair: "#a5532e", shirt: "#f2a65a", long: true },
+  { name: "Iain",     photo: null, skin: "#e9b98f", hair: "#3a2f28", shirt: "#5aa9a0" },
+  { name: "Julie",   photo: null, skin: "#f3c9a5", hair: "#a5532e", shirt: "#f2a65a" },
   { name: "Paul",    photo: null, skin: "#dcae82", hair: "#7a4a2a", shirt: "#6f83c9" },
 ];
 
@@ -541,8 +542,8 @@ function avatar(p) {
   if (p.photo) return `<div class="frame"><img src="${p.photo}" alt="${p.name}"></div>`;
   return `<div class="frame"><svg viewBox="0 0 100 100" role="img" aria-label="${p.name}">
     <rect width="100" height="100" fill="#fbe9c9"/>
+    ${p.long ? `<path d="M27 44 Q25 16 50 16 Q75 16 73 44 L76 80 Q50 72 24 80Z" fill="${p.hair}"/>` : ''}
     <path d="M14 100 Q16 72 50 70 Q84 72 86 100Z" fill="${p.shirt}"/>
-    ${p.long ? `<path d="M28 44 Q26 18 50 18 Q74 18 72 44 L75 84 L25 84Z" fill="${p.hair}"/>` : ''}
     ${p.bun ? `<circle cx="50" cy="18" r="9" fill="${p.hair}"/>` : ''}
     <rect x="43" y="58" width="14" height="16" fill="${p.skin}"/>
     <circle cx="50" cy="44" r="19" fill="${p.skin}"/>
